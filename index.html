@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Family Tree Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Family Tree Tracker</h1>
+            <div class="header-buttons">
+                <button id="addPersonBtn" class="btn btn-primary">Add New Person</button>
+                <button id="exportBtn" class="btn btn-secondary">Export JSON</button>
+                <button id="importBtn" class="btn btn-secondary">Import JSON</button>
+                <input type="file" id="importFile" accept=".json" style="display: none;">
+            </div>
+        </header>
+
+        <main>
+            <div id="personsList" class="persons-list">
+                <!-- Person cards will be dynamically added here -->
+            </div>
+        </main>
+
+        <!-- Add/Edit Person Modal -->
+        <div id="personModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 id="modalTitle">Add New Person</h2>
+                    <span class="close">&times;</span>
+                </div>
+                <form id="personForm">
+                    <div class="form-group">
+                        <label for="surname">Surname:</label>
+                        <input type="text" id="surname" name="surname" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="firstNames">First Names:</label>
+                        <input type="text" id="firstNames" name="firstNames" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="dateOfBirth">Date of Birth:</label>
+                        <input type="text" id="dateOfBirth" name="dateOfBirth" placeholder="e.g. 1950, 1950-05, or 1950-05-15">
+                    </div>
+                    <div class="form-group">
+                        <label for="dateOfDeath">Date of Death (optional):</label>
+                        <input type="text" id="dateOfDeath" name="dateOfDeath" placeholder="e.g. 1985, 1985-12, or 1985-12-25">
+                    </div>
+                    <div class="form-group">
+                        <label for="marriageDate">Marriage Date (optional):</label>
+                        <input type="text" id="marriageDate" name="marriageDate" placeholder="e.g. 1950, 1950-06, or 1950-06-15">
+                    </div>
+                    <div class="form-group">
+                        <label for="gender">Gender:</label>
+                        <select id="gender" name="gender" required>
+                            <option value="">Select Gender</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Save Person</button>
+                        <button type="button" id="cancelBtn" class="btn btn-secondary">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Relationships Modal -->
+        <div id="relationshipsModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Manage Relationships</h2>
+                    <span class="close">&times;</span>
+                </div>
+                <div id="relationshipsContent">
+                    <!-- Relationships content will be dynamically added here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
