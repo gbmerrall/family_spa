@@ -85,3 +85,15 @@ Each person object includes:
 - Basic info: id, surname, firstNames, dateOfBirth, dateOfDeath, marriageDate, gender
 - Relationships: father, mother, siblings[], partner, children[]
 - Metadata: createdAt, updatedAt 
+
+## Deployment
+Had a request to host it somewhere so whipped up a way to drop it in Google Cloud Run which is my preferred serverless platform.
+
+```sh
+gcloud run deploy family-spa \
+  --source . \
+  --platform managed \
+  --region us-central1 \
+  --allow-unauthenticated \
+  --project YOUR-PROJECT
+```
